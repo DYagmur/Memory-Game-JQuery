@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth font-['Tektur']">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,17 +13,17 @@
         ></script>
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <nav class="navbar">
-            <a href="#"><p>MG</p></a>
-            <ul class="navlist">
-                <li class="navitem" id="how">?</li>
-                <li class="navitem" id="reload">&#8634;</li>
-                <li class="navitem" id="scoreboard">&#9638;</li>
+    <body class="bg-blue-950 text-white">
+        <nav class="w-20 h-screen text-4xl bg-black	fixed flex flex-col	items-center z-20">
+            <a href="#" class="no-underline"><p>MG</p></a>
+            <ul class="list-none w-full h-full text-center flex flex-col justify-evenly items-center">
+                <li class="w-full cursor-pointer" id="how">?</li>
+                <li class="w-full cursor-pointer" id="reload">&#8634;</li>
+                <li class="w-full cursor-pointer" id="scoreboard">&#9638;</li>
             </ul>
         </nav>
-        <div id="popup">
-            <h2>How to play</h2>
+        <div class="w-[70%] fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-black z-10 p-12 text-lg/loose rounded-[20px] duration-[300ms] flex flex-col justify-center items-center invisible opacity-0" id="popup">
+            <h2 class="text-center text-4xl font-bold">How to play</h2>
             <ol>
                 <li>
                     The game starts with a deck of face-down cards on the board.
@@ -40,7 +40,7 @@
                     are matched.
                 </li>
                 <li>
-                    The game keeps track of your moves and time taken to
+                    The game keeps track of your time taken to
                     complete the game.
                 </li>
             </ol>
@@ -56,13 +56,13 @@
             </ol>
         </div>
         <main class="container" id="blur">
-            <section class="banner">
-                <h1 id="title"></h1>
-                <a href="#game-board">Start <span class="play">►</span></a>
+            <section class="h-screen text-8xl text-center relative flex flex-col justify-center items-center gap-20">
+                <h1 class="cursor-default font-bold text-9xl" id="title"></h1>
+                <a class="no-underline border-4 rounded-full py-8 px-16" href="#game-board">Start <span class="play">►</span></a>
             </section>
-            <div id="game-board">
+            <div class="h-screen z-20" id="game-board">
                 <section class="level-container">
-                    <h1 class="level-text">Choose difficulty</h1>
+                    <h1 class="level-text text-6xl font-bold">Choose difficulty</h1>
                     <div class="level" id="level">
                         <div class="diff easy" id="3">Easy</div>
                         <div class="diff medium" id="6">Medium</div>
@@ -70,9 +70,8 @@
                     </div>
                 </section>
             </div>
-            <!-- 
-            <div class="timer" id="timer">180</div>
-            <section-- class="game" id="game-board">
+            <!-- <div class="timer" id="timer">180</div> -->
+            <!-- <section-- class="game" id="game-board">
                 <div class="card">
                     <img class="back" src="img/back.png" alt="Back Face" />
                     <img class="front" src="img/meteor.png" alt="Meteor" />
