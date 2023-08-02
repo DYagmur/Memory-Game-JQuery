@@ -1,9 +1,10 @@
 // Delete all elements on the container
 function removeChilds() {
-    const container = document.getElementById("game-board");
-    while (container.hasChildNodes()) {
-        container.removeChild(container.firstChild);
-    }
+    $("#game-board").empty(); //jQuery method for delete all children
+    //const container = document.getElementById("game-board");
+    //while (container.hasChildNodes()) {
+    //    container.removeChild(container.firstChild);
+    //}
 }
 // Gettin the level from the buttons on screen
 function gameLevel(event) {
@@ -14,15 +15,17 @@ function gameLevel(event) {
 
 // Creating cards dynamically and put them on screen
 function createCards(arr) {
-    const timer = document.createElement("div");
+    /*const timer = document.createElement("div");
     timer.id = "timer";
     timer.classList.add("timer");
-    timer.innerHTML = "0";
-    const boardGame = document.getElementById("game-board");
-    const section = document.createElement("section");
-    section.classList.add("game");
+    timer.innerHTML = "0";*/
+    const timer = "<div id='timer' class='timer'>0</div>";
+    //const boardGame = document.getElementById("game-board");
+    /*const section = document.createElement("section");
+    section.classList.add("game");*/
+    const section = "<section class='game'></section>";
     for (const iterator of arr) {
-        const div = document.createElement("div");
+        /*const div = document.createElement("div");
         const img1 = document.createElement("img");
         const img2 = document.createElement("img");
         div.classList.add("card");
@@ -33,19 +36,26 @@ function createCards(arr) {
         img2.classList.add("front");
         img2.src = iterator.url;
         div.appendChild(img1);
-        div.appendChild(img2);
-        section.appendChild(div);
+        div.appendChild(img2);*/
+        let card = `<div class='card' card=${iterator.id} onClick='flipCard'><img scr='./img/back.png' class='back'><img scr=${iterator.url} class='front'></div>`;
+        //section.appendChild(div);
+        section.append(card);
     }
-    boardGame.appendChild(timer);
-    boardGame.appendChild(section);
-    window.scrollBy(0, window.innerHeight);
+    //boardGame.appendChild(timer);
+    //boardGame.appendChild(section);
+    $("game-board").append(timer);
+    $("game-board").append(section);
+    //window.scrollBy(0, window.innerHeight);
+    $(document).scrollTop(500);
     start();
 }
 
 // Creating level cards and put them on screen
 function reload() {
     removeChilds();
-    const boardGame = document.getElementById("game-board");
+    let section2 =
+        "<section class='level-container'><h1 class='level-text'>Choose difficulty</h1><div id='level' class='level'><div id='3' class='diff easy' onClick='gameLevel'>Easy</div><div id='6' class='diff medium' onClick='gameLevel'>Medium</div><div id='9' id='diff hard' onClick='gameLevel'>Hard</div></div></section>";
+    /*const boardGame = document.getElementById("game-board");
     const section = document.createElement("section");
     section.classList.add("level-container");
     const h1 = document.createElement("h1");
@@ -77,8 +87,10 @@ function reload() {
     container.appendChild(hard);
     section.appendChild(h1);
     section.appendChild(container);
-    boardGame.appendChild(section);
-    window.scrollBy(0, window.innerHeight);
+    boardGame.appendChild(section);*/
+    $("#game-board").append(section2);
+    //window.scrollBy(0, window.innerHeight);
+    $(document).scrollTop(500);
     stop();
 }
 
@@ -86,9 +98,11 @@ function reload() {
 let timer;
 function start() {
     timer = setInterval(() => {
-        let seconds = parseInt(document.getElementById("timer").innerHTML);
+        //let seconds = parseInt(document.getElementById("timer").innerHTML);
+        let seconds = parseInt($("#timer").html());
         seconds += 1;
-        document.getElementById("timer").innerHTML = seconds;
+        //document.getElementById("timer").innerHTML = seconds;
+        $("timer").html(seconds);
     }, 1000);
 }
 function stop() {
@@ -97,7 +111,8 @@ function stop() {
 
 // Setting score on Local Storage
 function setScore() {
-    const currentTime = document.getElementById("timer").innerHTML;
+    //const currentTime = document.getElementById("timer").innerHTML;
+    const currentTime = $("#timer").html();
     let arrayScore = getScore();
     arrayScore.pop();
     arrayScore.unshift(parseInt(currentTime));
@@ -137,17 +152,22 @@ function today() {
 function setTitle() {
     let title = "Memory....Game";
     title = title.split(".").join(" ");
-    document.getElementById("title").innerHTML = title;
+    //document.getElementById("title").innerHTML = title;
+    $("#title").html(title);
 }
 
 // Adding function when document is complety loaded
-document.addEventListener("DOMContentLoaded", () => {
+$(document).ready(() => {
     localStorage.setItem("score", "[0,0,0]");
     localStorage.setItem("bestScore", "100");
-    document.getElementById("reload").addEventListener("click", reload);
-    document.getElementById("3").addEventListener("click", gameLevel);
-    document.getElementById("6").addEventListener("click", gameLevel);
-    document.getElementById("9").addEventListener("click", gameLevel);
-    document.getElementById("todaydate").innerHTML = today();
-    setTitle();
+    //document.getElementById("reload").addEventListener("click", reload);
+    $("#reload").click(reload);
+    //document.getElementById("3").addEventListener("click", gameLevel);
+    $("#3").click(gameLevel);
+    //document.getElementById("6").addEventListener("click", gameLevel);
+    $("#6").click(gameLevel);
+    //document.getElementById("9").addEventListener("click", gameLevel);
+    $("#9").click(gameLevel);
+    //document.getElementById("todaydate").innerHTML = today();
+    $("#todaydate").setTitle();
 });
