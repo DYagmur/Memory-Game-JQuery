@@ -41,9 +41,9 @@ function isPair(att) {
    let current = $(`[card=${currentCard}]`)  //  jQuery selects HTML elements with the attribute card matching the value of currentCard. 
     if (turn == 2) {
         turn = 1;
-        if (currentCard === att) {  //thecards opened 2 times.
+        if (currentCard === att) {  //the same card clicked twice.
             currentCard = "default";
-        } else {
+        } else {  //if not, 
             setTimeout(() => {
                 for (let i = 0; i < 2; i++) {
                     open[i].classList.remove("flip");
@@ -54,7 +54,7 @@ function isPair(att) {
                 }
             }, 500);
         }
-    } else {   //if the opening first card.
+    } else {   //new round.
         turn = 2;
         currentCard = att;
     }
