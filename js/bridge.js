@@ -7,8 +7,8 @@ function removeChilds() {
     //}
 }
 // Gettin the level from the buttons on screen
-function gameLevel(event) {
-    const level = event.target.id;
+function gameLevel(id) {
+    const level = id;
     removeChilds();
     createPictures(level);
 }
@@ -24,6 +24,9 @@ function createCards(arr) {
     /*const section = document.createElement("section");
     section.classList.add("game");*/
     const section = "<section class='game'></section>";
+    $("#game-board").append(timer);
+    $("#game-board").append(section);
+    let card;
     for (const iterator of arr) {
         /*const div = document.createElement("div");
         const img1 = document.createElement("img");
@@ -37,14 +40,15 @@ function createCards(arr) {
         img2.src = iterator.url;
         div.appendChild(img1);
         div.appendChild(img2);*/
-        let card = `<div class='card' card=${iterator.id} onClick='flipCard'><img scr='./img/back.png' class='back'><img scr=${iterator.url} class='front'></div>`;
+        card = `<div class='card rounded' card=${iterator.id} onclick='flipCard(this)'>
+        <img src='./img/back.png' class='back'>
+        <img src=${iterator.url} class='front'></div>`;
         //section.appendChild(div);
-        section.append(card);
+        $(".game").append(card);
     }
     //boardGame.appendChild(timer);
     //boardGame.appendChild(section);
-    $("game-board").append(timer);
-    $("game-board").append(section);
+
     //window.scrollBy(0, window.innerHeight);
     $(document).scrollTop(500);
     start();
@@ -54,7 +58,7 @@ function createCards(arr) {
 function reload() {
     removeChilds();
     let section2 =
-        "<section class='level-container'><h1 class='level-text'>Choose difficulty</h1><div id='level' class='level'><div id='3' class='diff easy' onClick='gameLevel'>Easy</div><div id='6' class='diff medium' onClick='gameLevel'>Medium</div><div id='9' id='diff hard' onClick='gameLevel'>Hard</div></div></section>";
+        "<section class='level-container'><h1 class='level-text'>Choose difficulty</h1><div id='level' class='level'><div id='3' class='diff easy' onclick='gameLevel(this.id)'>Easy</div><div id='6' class='diff medium' onclick='gameLevel(this.id)'>Medium</div><div id='9' class='diff hard' onclick='gameLevel(this.id)'>Hard</div></div></section>";
     /*const boardGame = document.getElementById("game-board");
     const section = document.createElement("section");
     section.classList.add("level-container");
@@ -163,11 +167,11 @@ $(document).ready(() => {
     //document.getElementById("reload").addEventListener("click", reload);
     $("#reload").click(reload);
     //document.getElementById("3").addEventListener("click", gameLevel);
-    $("#3").click(gameLevel);
+    //$("#3").click(gameLevel);
     //document.getElementById("6").addEventListener("click", gameLevel);
-    $("#6").click(gameLevel);
+    //$("#6").click(gameLevel);
     //document.getElementById("9").addEventListener("click", gameLevel);
-    $("#9").click(gameLevel);
+    //$("#9").click(gameLevel);
     //document.getElementById("todaydate").innerHTML = today();
-    $("#todaydate").setTitle();
+    $("#todaydate").html(today);
 });
