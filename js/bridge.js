@@ -102,7 +102,7 @@ function start() {
         let seconds = parseInt($("#timer").html());
         seconds += 1;
         //document.getElementById("timer").innerHTML = seconds;
-        $("timer").html(seconds);
+        $("#timer").html(seconds);
     }, 1000);
 }
 function stop() {

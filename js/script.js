@@ -35,8 +35,10 @@ function shuffleArray(array) {
 let turn = 1;
 let currentCard = "default";
 function isPair(att) {
-    let open = document.querySelectorAll(`[card=${att}]`);
-    let current = document.querySelectorAll(`[card=${currentCard}]`);
+    /* let open = document.querySelectorAll(`[card=${att}]`); */
+    let open = $(`[card=${att}]`)
+   /*  let current = document.querySelectorAll(`[card=${currentCard}]`); */
+   let current = $(`[card=${currentCard}]`)
     if (turn == 2) {
         turn = 1;
         if (currentCard === att) {
@@ -44,8 +46,10 @@ function isPair(att) {
         } else {
             setTimeout(() => {
                 for (let i = 0; i < 2; i++) {
-                    open[i].classList.remove("flip");
-                    current[i].classList.remove("flip");
+                    /* open[i].classList.remove("flip"); */
+                    open[i].removeClass("flip");
+                    /* current[i].classList.remove("flip"); */
+                    current[i].removeClass("flip");
                     currentCard = "default";
                 }
             }, 500);
@@ -61,7 +65,9 @@ function isPair(att) {
 }
 
 function checkGameCompletion() {
-    let matchedCards = document.querySelectorAll(".card");
+    /* let matchedCards = document.querySelectorAll(".card"); */
+    let matchedCards = $(".card")
+    console.log(matchedCards);
     let completed = true;
 
     for (let i = 0; i < matchedCards.length; i++) {
