@@ -24,7 +24,7 @@ function createCards(arr) {
     /*const section = document.createElement("section");
     section.classList.add("game");*/
     const section = "<section class='game'></section>";
-    $("#game-board").append(timer); // selecting the element with the id game-board. 
+    $("#game-board").append(timer); // selecting the element with the id game-board. add the element of html timer.
     $("#game-board").append(section);
     let card;
     for (const iterator of arr) {
@@ -103,7 +103,7 @@ let timer;
 function start() {
     timer = setInterval(() => {
         //let seconds = parseInt(document.getElementById("timer").innerHTML);
-        let seconds = parseInt($("#timer").html());
+        let seconds = parseInt($("#timer").html());  //
         seconds += 1;
         //document.getElementById("timer").innerHTML = seconds;
         $("#timer").html(seconds);
@@ -116,7 +116,7 @@ function stop() {
 // Setting score on Local Storage
 function setScore() {
     //const currentTime = document.getElementById("timer").innerHTML;
-    const currentTime = $("#timer").html();
+    const currentTime = $("#timer").html(); // select the html element with id timer. cpnverst int and storein seconds variable.
     let arrayScore = getScore();
     arrayScore.pop();
     arrayScore.unshift(parseInt(currentTime));
