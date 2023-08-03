@@ -14,12 +14,12 @@ $("#scoreboard").click(function(){
 });
 
 function scoreToggle() {
-    document.getElementById("best").innerHTML = getBestScore();
-    let arrayScore = getScore();
-    document.getElementById("score2").innerHTML = arrayScore[0];
-    document.getElementById("score3").innerHTML = arrayScore[1];
-    document.getElementById("score4").innerHTML = arrayScore[2];
+    $("#best").html(getBestScore());
 
+    let arrayScore = getScore();
+    $("#score2").html(arrayScore[0]);
+    $("#score3").html(arrayScore[1]);
+    $("#score4").html(arrayScore[2]);
 }
 
 scoreBoard.addEventListener("click", scoreToggle);
