@@ -54,12 +54,12 @@ a {
     cursor: pointer;
 } */
 
-.container {
+/* .container {
     transition: 0.3s;
     position: relative;
     background-image: url(../img/background.jpg);
     background-size: cover;
-}
+} */
 
 /* POPUP */
 .container#blur.active {
@@ -101,7 +101,7 @@ a {
 } */
 
 /* SCOREBOARD */
-#score {
+/* #score {
     width: 70%;
     position: fixed;
     top: 50%;
@@ -121,7 +121,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
+} */
 
 #score.active {
     visibility: visible;
@@ -129,7 +129,7 @@ a {
     transition: 0.3s;
 }
 
-#score h2 {
+/* #score h2 {
     font-size: 2rem;
 }
 
@@ -139,7 +139,7 @@ a {
 
 #score li {
     font-size: 1.5rem;
-}
+} */
 
 /* HEROBANNER */
 /* .banner {
@@ -258,6 +258,7 @@ a {
 
 .level-text {
     font-size: 3rem;
+    font-weight: 800;
 }
 
 .diff {

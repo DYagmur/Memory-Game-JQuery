@@ -45,24 +45,34 @@
                 </li>
             </ol>
         </div>
-        <div id="score">
+        <div class="w-[70%] fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-black z-10 p-12 text-lg/loose rounded-[20px] duration-[300ms] flex flex-col justify-center items-center invisible opacity-0" id="score">
             <div id="todaydate"></div>
-            <h2>Leaderboard</h2>
-            <p id="best">35</p>
+            <h2 class="text-4xl">Leaderboard</h2>
+            <p id="best" class="text-5xl">35</p>
             <ol>
-                <li id="score2">35</li>
-                <li id="score3">35</li>
-                <li id="score4">35</li>
+                <li class="text-3xl" id="score2">35</li>
+                <li class="text-3xl" id="score3">35</li>
+                <li class="text-3xl" id="score4">35</li>
             </ol>
         </div>
-        <main class="container min-w-full" id="blur">
+        <main class="container  min-w-full duration-[300ms] relative bg-[url('img/background.jpg')] bg-cover" id="blur">
             <section class="h-screen text-8xl text-center relative flex flex-col justify-center items-center gap-20">
                 <h1 class="cursor-default font-bold text-9xl" id="title"></h1>
                 <a class="no-underline border-4 rounded-full py-8 px-16" href="#game-board">Start <span class="play">►</span></a>
             </section>
             <div class="h-screen z-20" id="game-board">
-                <section class="level-container">
-                    <h1 class="level-text text-6xl font-bold">Choose difficulty</h1>
+                <div class="w-[70%] fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-black z-10 p-12 text-lg/loose rounded-[20px] duration-[300ms] flex flex-col justify-center items-center invisible opacity-0" id="score">
+                    <div id="todaydate"></div>
+                    <h2 class="text-4xl">Leaderboard</h2>
+                    <p id="best" class="text-5xl">35</p>
+                    <ol>
+                        <li class="text-3xl" id="score2">35</li>
+                        <li class="text-3xl" id="score3">35</li>
+                        <li class="text-3xl" id="score4">35</li>
+                    </ol>
+                </div>
+                <section class="level-container" id="level-container">
+                    <h1 class="level-text">Choose difficulty</h1>
                     <div class="level" id="level">
                         <div class="diff easy" id="3">Easy</div>
                         <div class="diff medium" id="6">Medium</div>
