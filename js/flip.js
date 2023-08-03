@@ -1,4 +1,4 @@
-function flipCard() {
-    this.classList.toggle("flip");
-    isPair(this.getAttribute("card"));
+function flipCard(item) {
+    item.classList.toggle("flip");
+    isPair(item.getAttribute("card"));
 }
