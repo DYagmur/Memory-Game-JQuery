@@ -1,7 +1,7 @@
 // Delete all elements on the container
 function removeChilds() {
-    $("#game-board").empty(); //jQuery method for delete all children
-    //const container = document.getElementById("game-board");
+    $("#game-board").empty(); //jQuery method for delete all children    // 
+    //const container = document.getElementById("game-board");    
     //while (container.hasChildNodes()) {
     //    container.removeChild(container.firstChild);
     //}
@@ -24,7 +24,7 @@ function createCards(arr) {
     /*const section = document.createElement("section");
     section.classList.add("game");*/
     const section = "<section class='game'></section>";
-    $("#game-board").append(timer);
+    $("#game-board").append(timer); // selecting the element with the id game-board. 
     $("#game-board").append(section);
     let card;
     for (const iterator of arr) {
