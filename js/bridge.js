@@ -40,7 +40,7 @@ function createCards(arr) {
         img2.src = iterator.url;
         div.appendChild(img1);
         div.appendChild(img2);*/
-        card = `<div class='card' card=${iterator.id} onclick='flipCard(this)'>
+        card = `<div class='card rounded' card=${iterator.id} onclick='flipCard(this)'>
         <img src='./img/back.png' class='back'>
         <img src=${iterator.url} class='front'></div>`;
         //section.appendChild(div);
